@@ -6,9 +6,9 @@ extends Node
 const VoxelLibraryResource = preload("./blocks/voxel_library.tres")
 
 # Takes effect in a large radius around the player
-const RADIUS = 100
+const RADIUS = 0
 # How many voxels are affected per frame
-const VOXELS_PER_FRAME = 512
+const VOXELS_PER_FRAME = 0
 
 @onready var _terrain : VoxelTerrain = get_node("../VoxelTerrain")
 @onready var _voxel_tool : VoxelToolTerrain = _terrain.get_voxel_tool()
