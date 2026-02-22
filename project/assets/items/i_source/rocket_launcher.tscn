@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[ext_resource type="PackedScene" uid="uid://cv3fuj2gwpej3" path="res://assets/items/i_models/rocket_launcher.gltf" id="1"]
+
+
+[node name="RocketLauncher" instance=ExtResource( 1 )]

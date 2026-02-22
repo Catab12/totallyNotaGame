@@ -1,0 +1,7 @@
+[gd_resource type="VoxelGeneratorScript" format=2]
+
+[ext_resource type="Script" uid="uid://dre7bep3u8ir6" path="res://src/generator/generator.gd" id="1"]
+
+
+[resource]
+script = ExtResource( 1 )

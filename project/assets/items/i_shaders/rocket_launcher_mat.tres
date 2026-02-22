@@ -1,0 +1,14 @@
+[gd_resource type="SpatialMaterial" format=2]
+
+[ext_resource type="Texture" uid="uid://csnr6w8h6rrta" path="res://assets/items/i_textures/rocket_launcher.png" id="1"]
+
+
+[resource]
+resource_name = "rocket_launcher_mat"
+params_cull_mode = 2
+albedo_texture = ExtResource( 1 )
+emission_enabled = true
+emission = Color( 0, 0, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
