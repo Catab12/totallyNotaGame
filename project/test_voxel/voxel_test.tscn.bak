@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3]
+
+[sub_resource type="Transform3D" id="Transform3D_009de64c"]
+origin = {"'x'": 64, "'y'": 80, "'z'": -40}
+basis = {"'x'": {"'x'": 1, "'y'": 0, "'z'": 0}, "'y'": {"'x'": 0, "'y'": 0.866, "'z'": 0.5}, "'z'": {"'x'": 0, "'y'": -0.5, "'z'": 0.866}}
+
+[sub_resource type="Transform3D" id="Transform3D_528791c4"]
+origin = {"'x'": 0, "'y'": 100, "'z'": 0}
+basis = {"'x'": {"'x'": 0.707, "'y'": -0.5, "'z'": 0.5}, "'y'": {"'x'": 0, "'y'": 0.707, "'z'": 0.707}, "'z'": {"'x'": -0.707, "'y'": -0.5, "'z'": 0.5}}
+
+[node name="Main" type="Node3D"]
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = SubResource("Transform3D_009de64c")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = SubResource("Transform3D_528791c4")
+light_energy = 1.5
+shadow_enabled = true
+
+[node name="World" type="VoxelWorld" parent="."]
+view_distance = 4
