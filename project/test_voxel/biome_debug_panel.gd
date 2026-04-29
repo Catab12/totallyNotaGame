@@ -21,7 +21,6 @@ var scale_label: Label
 var octaves_input: SpinBox
 var biome_selector: OptionButton
 var noclip_btn: Button
-var regenerate_btn: Button
 var info_label: Label
 
 const BIOME_NAMES = [
@@ -30,6 +29,13 @@ const BIOME_NAMES = [
 ]
 
 var current_biome_index = 0
+var _update_timer := 0.0
+
+func _process(delta: float) -> void:
+	_update_timer += delta
+	if _update_timer >= 0.5:
+		_update_timer = 0.0
+		_update_info()
 
 func _ready():
 	# Crear UI programáticamente
@@ -41,7 +47,6 @@ func _ready():
 	
 	# Conectar señales
 	noclip_btn.pressed.connect(_on_noclip_pressed)
-	regenerate_btn.pressed.connect(_on_regenerate_pressed)
 	seed_input.value_changed.connect(_on_value_changed)
 	cell_count_input.value_changed.connect(_on_value_changed)
 	warp_slider.value_changed.connect(_on_value_changed)
@@ -139,23 +144,12 @@ func _create_ui():
 	vbox.add_child(biome_row)
 	
 	# Botón de noclip
-	var move_hbox = HBoxContainer.new()
-	move_hbox.add_theme_constant_override("separation", 4)
-	
 	noclip_btn = Button.new()
 	noclip_btn.text = "👻 NOCLIP: OFF"
 	noclip_btn.toggle_mode = true
 	noclip_btn.focus_mode = Control.FOCUS_NONE  # Evitar que Space/Enter togglee el botón
 	noclip_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	move_hbox.add_child(noclip_btn)
-	
-	# Botón regenerar
-	regenerate_btn = Button.new()
-	regenerate_btn.text = "🔄 Regenerar"
-	regenerate_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	move_hbox.add_child(regenerate_btn)
-	
-	vbox.add_child(move_hbox)
+	vbox.add_child(noclip_btn)
 	
 	# Info
 	info_label = Label.new()
@@ -232,14 +226,20 @@ func _update_labels():
 	scale_label.text = str(scale_slider.value)
 
 func _update_info():
-	var mode_text = ""
+	var mode_text := ""
+	if player != null and player.has_method("get_movement_mode"):
+		mode_text = " | %s" % player.get_movement_mode()
+	
+	var pos_text := ""
 	if player != null:
-		if player.has_method("get_movement_mode"):
-			mode_text = " | %s" % player.get_movement_mode()
+		var pos := player.global_position
+		pos_text = "Pos: %.0f, %.0f | " % [pos.x, pos.z]
+	
+	var chunk_count := 0
 	if world != null and world.has_method("get_chunk_count"):
-		info_label.text = "Chunks: %d | %s%s" % [world.get_chunk_count(), BIOME_NAMES[current_biome_index], mode_text]
-	else:
-		info_label.text = "Bioma: %s%s" % [BIOME_NAMES[current_biome_index], mode_text]
+		chunk_count = world.get_chunk_count()
+	
+	info_label.text = "%sChunks: %d%s" % [pos_text, chunk_count, mode_text]
 
 func _on_noclip_pressed():
 	if player == null:
@@ -249,28 +249,6 @@ func _on_noclip_pressed():
 	var active = player.toggle_noclip()
 	noclip_btn.text = "👻 NOCLIP: %s" % ("ON" if active else "OFF")
 	noclip_btn.button_pressed = active
-	_update_info()
-
-func _on_regenerate_pressed():
-	if world == null:
-		push_error("No hay World conectado")
-		return
-	
-	print("🔄 Regenerando mundo con parámetros actuales...")
-	
-	# Actualizar seed de la distribución
-	if biome_dist != null and biome_dist.has_method("set_seed"):
-		biome_dist.set_seed(int(seed_input.value))
-	
-	# Regenerar regiones de biomas
-	if biome_dist != null and biome_dist.has_method("_generate_regions"):
-		biome_dist._generate_regions()
-	
-	# Limpiar y regenerar mundo
-	world.clear_world()
-	world.generate_world(Vector3i(0, 0, 0), world.view_distance)
-	
-	print("🔄 Mundo regenerado. Chunks: ", world.get_chunk_count())
 	_update_info()
 
 func _on_biome_selected(index):

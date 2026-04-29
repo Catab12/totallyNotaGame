@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 DDD="*res://addons/zylann.debug_draw/debug_draw.gd"
+VoxelBlockRegistry="*res://test_voxel/voxel_block_registry.gd"
 
 [display]
 

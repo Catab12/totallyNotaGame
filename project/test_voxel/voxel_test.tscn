@@ -1,40 +1,28 @@
-[gd_scene format=3 uid="uid://c8yvxg3ulq3a"]
+[gd_scene load_steps=4 format=3 uid="uid://c8yvxg3ulq3a"]
 
-[ext_resource type="Script" uid="uid://dr6rhgbju2oif" path="res://test_voxel/voxel_test.gd" id="1_abc123"]
-[ext_resource type="Script" uid="uid://dr8eduh8jin3f" path="res://test_voxel/player.gd" id="2_player"]
-[ext_resource type="Script" uid="uid://cmedrto2va8em" path="res://test_voxel/biome_debug_panel.gd" id="3_debug"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
-radius = 0.3
-height = 1.8
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_player"]
-radius = 0.3
-height = 1.8
-
+[ext_resource type="Script" path="res://test_voxel/voxel_test.gd" id="1_abc123" uid="uid://dr6rhgbju2oif"]
+[ext_resource type="Script" path="res://test_voxel/player.gd" id="2_player" uid="uid://dr8eduh8jin3f"]
+[ext_resource type="Script" path="res://test_voxel/biome_debug_panel.gd" id="3_debug" uid="uid://cmedrto2va8em"]
 [node name="Main" type="Node3D" unique_id=197066231]
 script = ExtResource("1_abc123")
 
 [node name="World" type="VoxelWorld" parent="." unique_id=485311546]
-view_distance = 2
+view_distance = 12
+debug_mode = 1
+debug_show_chunk_borders = true
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=1920625960]
+transform = "Transform3D(1, 0, 0, 0, 0.6672478, 0.74483585, 0, -0.74483585, 0.6672478, 0, 19.440845, 0)"
 light_energy = 1.5
 shadow_enabled = true
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1083777035]
 script = ExtResource("2_player")
 speed = 12.0
-noclip_speed = 30.0
+voxel_world = NodePath("../World")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=791249087]
-shape = SubResource("CapsuleShape3D_player")
-
-[node name="Camera3D" type="Camera3D" parent="Player" unique_id=341389945]
+[node name="Camera3D" type="Camera3D" parent="Player" parent_id_path=PackedInt32Array(1083777035) unique_id=341389945]
 fov = 90.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=825045016]
-mesh = SubResource("CapsuleMesh_player")
 
 [node name="BiomeDebugPanel" type="Control" parent="." unique_id=2103551507]
 layout_mode = 3

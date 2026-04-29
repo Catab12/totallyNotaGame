@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "comment": "Aleph Voxel Engine - Biome Definitions. Temperature and humidity ranges determine biome placement via noise.",
+  
+  "biomes": {
+    "crystal_forest": {
+      "id": 0,
+      "name": "Crystal Forest",
+      "surface_block": "crystal_cyan",
+      "soil_block": "crystal_dark",
+      "deep_block": "stone",
+      "temperature_range": [-0.8, -0.2],
+      "humidity_range": [0.3, 0.9],
+      "terrain_height": 60,
+      "height_variation": 12,
+      "description": "Forests of glowing cyan crystals"
+    },
+    
+    "acid_lakes": {
+      "id": 1,
+      "name": "Acid Lakes",
+      "surface_block": "acid_sand",
+      "soil_block": "corroded_rock",
+      "deep_block": "stone",
+      "temperature_range": [0.2, 0.8],
+      "humidity_range": [0.6, 1.0],
+      "terrain_height": 35,
+      "height_variation": 5,
+      "description": "Toxic lakes of corrosive acid"
+    },
+    
+    "fungal_swamp": {
+      "id": 2,
+      "name": "Fungal Swamp",
+      "surface_block": "biomass",
+      "soil_block": "dirt",
+      "deep_block": "stone",
+      "temperature_range": [0.0, 0.6],
+      "humidity_range": [0.7, 1.0],
+      "terrain_height": 45,
+      "height_variation": 8,
+      "description": "Swamps covered in glowing fungi"
+    },
+    
+    "magma_fields": {
+      "id": 3,
+      "name": "Magma Fields",
+      "surface_block": "volcanic_rock",
+      "soil_block": "magma_solid",
+      "deep_block": "stone",
+      "temperature_range": [0.6, 1.0],
+      "humidity_range": [0.0, 0.3],
+      "terrain_height": 50,
+      "height_variation": 15,
+      "description": "Volcanic plains with rivers of magma"
+    },
+    
+    "void_cracks": {
+      "id": 4,
+      "name": "Void Cracks",
+      "surface_block": "void_crystal",
+      "soil_block": "void_rock",
+      "deep_block": "void_pure",
+      "temperature_range": [-1.0, -0.5],
+      "humidity_range": [0.0, 0.4],
+      "terrain_height": 40,
+      "height_variation": 20,
+      "description": "Cracks leading to the void dimension"
+    },
+    
+    "bio_mechanical": {
+      "id": 5,
+      "name": "Bio-Mechanical",
+      "surface_block": "organic_metal",
+      "soil_block": "metal_flesh",
+      "deep_block": "bio_core",
+      "temperature_range": [-0.3, 0.3],
+      "humidity_range": [0.2, 0.7],
+      "terrain_height": 55,
+      "height_variation": 10,
+      "description": "Fusion of organic and mechanical structures"
+    },
+    
+    "gravity_wells": {
+      "id": 6,
+      "name": "Gravity Wells",
+      "surface_block": "gravity_rock",
+      "soil_block": "dense_core",
+      "deep_block": "singularity",
+      "temperature_range": [0.3, 0.9],
+      "humidity_range": [0.1, 0.5],
+      "terrain_height": 70,
+      "height_variation": 18,
+      "description": "Areas with extreme gravity anomalies"
+    },
+    
+    "echo_plains": {
+      "id": 7,
+      "name": "Echo Plains",
+      "surface_block": "echo_surface",
+      "soil_block": "echo_solid",
+      "deep_block": "stone",
+      "temperature_range": [-0.5, 0.5],
+      "humidity_range": [0.0, 0.5],
+      "terrain_height": 65,
+      "height_variation": 6,
+      "description": "Reflective plains that echo sounds"
+    }
+  }
+}

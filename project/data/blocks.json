@@ -1,0 +1,262 @@
+{
+  "version": 1,
+  "comment": "Aleph Voxel Engine - Block Definitions. Edit this file to add/modify blocks without recompiling.",
+  
+  "blocks": {
+    "air": {
+      "id": 0,
+      "name": "Air",
+      "color": [0.0, 0.0, 0.0],
+      "flags": [],
+      "hardness": 0.0,
+      "description": "Empty space"
+    },
+    
+    "grass": {
+      "id": 1,
+      "name": "Grass",
+      "color": [0.35, 0.65, 0.25],
+      "flags": ["opaque", "solid"],
+      "hardness": 1.0,
+      "texture": "grass",
+      "description": "Alien grass with bioluminescent veins"
+    },
+    
+    "dirt": {
+      "id": 2,
+      "name": "Dirt",
+      "color": [0.55, 0.35, 0.20],
+      "flags": ["opaque", "solid"],
+      "hardness": 1.0,
+      "texture": "dirt",
+      "description": "Rich alien soil"
+    },
+    
+    "stone": {
+      "id": 3,
+      "name": "Stone",
+      "color": [0.50, 0.50, 0.52],
+      "flags": ["opaque", "solid"],
+      "hardness": 3.0,
+      "texture": "stone",
+      "description": "Dense extraterrestrial rock"
+    },
+    
+    "crystal_cyan": {
+      "id": 10,
+      "name": "Crystal Cyan",
+      "color": [0.20, 0.90, 0.90],
+      "flags": ["opaque", "solid", "emissive"],
+      "hardness": 2.5,
+      "light_level": 8,
+      "texture": "crystal_cyan",
+      "description": "Glowing cyan crystal found in Crystal Forests"
+    },
+    
+    "crystal_dark": {
+      "id": 11,
+      "name": "Crystal Dark",
+      "color": [0.10, 0.40, 0.60],
+      "flags": ["opaque", "solid"],
+      "hardness": 2.5,
+      "texture": "crystal_dark",
+      "description": "Deep blue crystal variant"
+    },
+    
+    "acid_sand": {
+      "id": 12,
+      "name": "Acid Sand",
+      "color": [0.70, 0.80, 0.20],
+      "flags": ["opaque", "solid"],
+      "hardness": 0.8,
+      "texture": "acid_sand",
+      "description": "Corrosive yellow-green sand from Acid Lakes"
+    },
+    
+    "corroded_rock": {
+      "id": 13,
+      "name": "Corroded Rock",
+      "color": [0.40, 0.50, 0.35],
+      "flags": ["opaque", "solid"],
+      "hardness": 2.0,
+      "texture": "corroded_rock",
+      "description": "Rock corroded by acid rain"
+    },
+    
+    "acid": {
+      "id": 14,
+      "name": "Acid",
+      "color": [0.40, 0.90, 0.20],
+      "flags": ["transparent", "liquid"],
+      "hardness": 0.0,
+      "texture": "acid",
+      "description": "Toxic alien acid - do not swim"
+    },
+    
+    "biomass": {
+      "id": 15,
+      "name": "Biomass",
+      "color": [0.80, 0.30, 0.60],
+      "flags": ["opaque", "solid"],
+      "hardness": 1.5,
+      "texture": "biomass",
+      "description": "Organic matter from Fungal Swamps"
+    },
+    
+    "fungus": {
+      "id": 16,
+      "name": "Fungus",
+      "color": [0.90, 0.50, 0.20],
+      "flags": ["opaque", "solid", "emissive"],
+      "hardness": 0.5,
+      "light_level": 4,
+      "texture": "fungus",
+      "description": "Glowing alien mushrooms"
+    },
+    
+    "volcanic_rock": {
+      "id": 17,
+      "name": "Volcanic Rock",
+      "color": [0.60, 0.20, 0.15],
+      "flags": ["opaque", "solid"],
+      "hardness": 3.5,
+      "texture": "volcanic_rock",
+      "description": "Heat-resistant rock from Magma Fields"
+    },
+    
+    "magma_solid": {
+      "id": 18,
+      "name": "Solid Magma",
+      "color": [0.90, 0.40, 0.10],
+      "flags": ["opaque", "solid", "emissive"],
+      "hardness": 4.0,
+      "light_level": 12,
+      "texture": "magma_solid",
+      "description": "Cooled but still warm magma"
+    },
+    
+    "magma": {
+      "id": 19,
+      "name": "Magma",
+      "color": [1.00, 0.15, 0.05],
+      "flags": ["opaque", "liquid", "emissive"],
+      "hardness": 0.0,
+      "light_level": 15,
+      "texture": "magma",
+      "description": "Liquid death"
+    },
+    
+    "void_crystal": {
+      "id": 20,
+      "name": "Void Crystal",
+      "color": [0.60, 0.20, 0.80],
+      "flags": ["opaque", "solid", "emissive"],
+      "hardness": 2.0,
+      "light_level": 6,
+      "texture": "void_crystal",
+      "description": "Crystal from the void cracks"
+    },
+    
+    "void_rock": {
+      "id": 21,
+      "name": "Void Rock",
+      "color": [0.25, 0.25, 0.30],
+      "flags": ["opaque", "solid"],
+      "hardness": 4.0,
+      "texture": "void_rock",
+      "description": "Dark rock from beyond"
+    },
+    
+    "void_pure": {
+      "id": 22,
+      "name": "Pure Void",
+      "color": [0.05, 0.05, 0.08],
+      "flags": ["opaque", "solid"],
+      "hardness": 5.0,
+      "texture": "void_pure",
+      "description": "The absence of matter"
+    },
+    
+    "organic_metal": {
+      "id": 23,
+      "name": "Organic Metal",
+      "color": [0.70, 0.70, 0.75],
+      "flags": ["opaque", "solid"],
+      "hardness": 3.0,
+      "texture": "organic_metal",
+      "description": "Bio-mechanical alloy"
+    },
+    
+    "metal_flesh": {
+      "id": 24,
+      "name": "Metal Flesh",
+      "color": [0.80, 0.45, 0.50],
+      "flags": ["opaque", "solid"],
+      "hardness": 2.0,
+      "texture": "metal_flesh",
+      "description": "Living tissue fused with machinery"
+    },
+    
+    "bio_core": {
+      "id": 25,
+      "name": "Bio Core",
+      "color": [0.20, 0.90, 0.40],
+      "flags": ["opaque", "solid", "emissive"],
+      "hardness": 2.5,
+      "light_level": 10,
+      "texture": "bio_core",
+      "description": "Power core of bio-mechanical entities"
+    },
+    
+    "gravity_rock": {
+      "id": 26,
+      "name": "Gravity Rock",
+      "color": [0.30, 0.40, 0.80],
+      "flags": ["opaque", "solid"],
+      "hardness": 3.5,
+      "texture": "gravity_rock",
+      "description": "Rock affected by gravity anomalies"
+    },
+    
+    "dense_core": {
+      "id": 27,
+      "name": "Dense Core",
+      "color": [0.15, 0.25, 0.50],
+      "flags": ["opaque", "solid"],
+      "hardness": 5.0,
+      "texture": "dense_core",
+      "description": "Extremely dense matter"
+    },
+    
+    "singularity": {
+      "id": 28,
+      "name": "Singularity",
+      "color": [0.02, 0.02, 0.10],
+      "flags": ["opaque", "solid", "emissive"],
+      "hardness": 6.0,
+      "light_level": 3,
+      "texture": "singularity",
+      "description": "Near-black hole material"
+    },
+    
+    "echo_surface": {
+      "id": 29,
+      "name": "Echo Surface",
+      "color": [0.90, 0.90, 0.95],
+      "flags": ["opaque", "solid", "reflective"],
+      "hardness": 2.0,
+      "texture": "echo_surface",
+      "description": "Reflective surface from Echo Plains"
+    },
+    
+    "echo_solid": {
+      "id": 30,
+      "name": "Echo Solid",
+      "color": [0.60, 0.60, 0.65],
+      "flags": ["opaque", "solid"],
+      "hardness": 2.5,
+      "texture": "echo_solid",
+      "description": "Dense echo matter"
+    }
+  }
+}
